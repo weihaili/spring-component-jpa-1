@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="jpa-1" transaction-type="RESOURCE_LOCAL">
+		<!-- configuration use JPA product implement
+		1. configuration (javax.persistence.spi.PersistenceProvider)interface implement
+		2. if Project has JPA implement product only one you can not configuration
+		3. 
+		 -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<!-- configuration persistence class -->
+		<class>org.com.kkl.entity.Customer</class>
+		
+		<properties>
+			<!-- connection database base information -->
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql:///jpa"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="123456"/>
+		
+			<!-- configuration JPA implements product(hibernate) base property -->
+			<property name="hibernate.hbm2ddl.auto" value="update"/>
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="hibernate.format_sql" value="true"/>
+		</properties>
+		
+		
+	</persistence-unit>
+</persistence>
